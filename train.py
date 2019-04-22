@@ -19,8 +19,8 @@ logging.basicConfig(filename='E:/workplace/kaggle/the-nature-conservancy-fisheri
 TRAIN_DIR = 'E:/workplace/kaggle/the-nature-conservancy-fisheries-monitoring/train/train/'
 TEST_DIR = 'E:/workplace/kaggle/the-nature-conservancy-fisheries-monitoring/test_stg1/'
 FISH_CLASSES = ['ALB', 'BET', 'DOL', 'LAG', 'NoF', 'OTHER', 'SHARK', 'YFT']
-ROWS = 90   #720
-COLS = 160  #1280
+ROWS = 90   #720 height
+COLS = 160  #1280 width
 CHANNELS = 3
 
 # 加载图片
@@ -110,7 +110,7 @@ model.compile(loss=objective, optimizer=optimizer)
 # 当监测值不再改善时，该回调函数将终止训练 (monitor:需要监视的量；patience：当early stop被激活后（如发现loss相比上一个
 # epoch训练没有下降）则经过patience个epoch后停止训练；verbose:信息展示模式；mode:'auto','min','max'之一，
 # 在min模式下，如果检测值停止下降则中止训练。在max模式下，当检测值不再上升则停止训练。)
-early_stopping = EarlyStopping(monitor='val_loss', patience=4, verbose=1, mode='auto')
+early_stopping = EarlyStopping(monitor='val_loss', patience=4, verbose=1, mode='auto')  # verbose : 进度表示方式。0表示不显示数据，1表示显示进度条，2表示用只显示一个数据。
 
 
 logging.info("model begin train")
